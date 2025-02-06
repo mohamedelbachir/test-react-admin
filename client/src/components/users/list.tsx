@@ -5,6 +5,7 @@ import {
   EditButton,
   EmailField,
   ShowButton,
+  WrapperField,
 } from "react-admin";
 import BulkActionButton from "./bulkaction";
 import ActiveStatusField from "../statusChip";
@@ -14,9 +15,15 @@ export const UserList = () => (
       <TextField source="id" />
       <TextField source="name" />
       <EmailField source="email" />
-      <ActiveStatusField />
-      <EditButton />
-      <ShowButton />
+      <WrapperField label="status">
+        <ActiveStatusField />
+      </WrapperField>
+      <WrapperField label="action">
+        <>
+          <EditButton />
+          <ShowButton />
+        </>
+      </WrapperField>
     </Datagrid>
   </List>
 );

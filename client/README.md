@@ -1,32 +1,63 @@
-# test-admin
+# **test-react-admin**
 
-## Installation
+## **📌 Installation**
 
-Install the application dependencies by running:
+First, install the application dependencies:
 
 ```sh
 npm install
 ```
 
-## Development
+Then, install dependencies for the `client` subdirectory:
 
-Start the application in development mode by running:
+```sh
+cd client
+npm install
+```
+
+---
+
+## **🚀 Running the Development Server**
+
+To start the application in development mode:
+
+### **If you're inside the `client` folder:**
+
+Move back to the root directory first:
+
+```sh
+cd ..
+npm run dev
+```
+
+### **If you're already in the root directory:**
+
+Simply run:
 
 ```sh
 npm run dev
 ```
 
-## Production
+---
 
-Build the application in production mode by running:
+## **🌍 Local Preview**
 
-```sh
-npm run build
+Once the development server is running, open your browser and visit:
+
+```
+http://localhost:5173
 ```
 
-## DataProvider
+This will load the frontend application.
 
-The included data provider use [ra-data-json-server](https://github.com/marmelab/react-admin/tree/master/packages/ra-data-json-server). It fits REST APIs powered by [JSON Server](https://github.com/typicode/json-server), such as [JSONPlaceholder](https://jsonplaceholder.typicode.com/).
+---
 
-You'll find an `.env` file at the project root that includes a `VITE_JSON_SERVER_URL` variable. Set it to the URL of your backend. By default, we set it to targets [JSONPlaceholder](https://jsonplaceholder.typicode.com/).
+## **📦 Data Provider**
 
+This project uses [ra-data-json-server](https://github.com/marmelab/react-admin/tree/master/packages/ra-data-json-server) as the data provider.
+
+You'll find an **`.env`** file in the `client` directory containing the `VITE_JSON_SERVER_URL` variable.
+
+### **Default Configuration**
+
+By default, the project is configured to use `json-server` with the file `db.json` as the mock backend.

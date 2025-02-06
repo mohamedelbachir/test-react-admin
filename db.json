@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Alice Johnson",
       "email": "alice@example.com",
-      "active": true
+      "active": false
     },
     {
       "id": 2,
@@ -22,13 +22,13 @@
       "id": 4,
       "name": "Diana Ross",
       "email": "diana@example.com",
-      "active": true
+      "active": false
     },
     {
       "id": 5,
       "name": "Ethan Hunt",
       "email": "ethan@example.com",
-      "active": true
+      "active": false
     },
     {
       "id": 6,
@@ -53,6 +53,12 @@
       "name": "Ian McKellen",
       "email": "ian@example.com",
       "active": true
+    },
+    {
+      "active": true,
+      "name": "MOHAMED  EL BACHIR ",
+      "email": "mail@gmail.com",
+      "id": 10
     }
   ],
   "posts": [

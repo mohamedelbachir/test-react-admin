@@ -1,8 +1,11 @@
-import {
-  DateInput,
-  Edit,
-  SimpleForm,
-  ReferenceInput,
-  TextInput,
-  SelectInput,
-} from "react-admin";
+import { Edit, SimpleForm, TextInput, BooleanInput } from "react-admin";
+
+export const UserEdit = () => (
+  <Edit>
+    <SimpleForm>
+      <TextInput source="name" />
+      <TextInput source="email" type="email" />
+      <BooleanInput source="active" />
+    </SimpleForm>
+  </Edit>
+);

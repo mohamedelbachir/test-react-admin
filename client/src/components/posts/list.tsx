@@ -8,8 +8,11 @@ import {
   Filter,
   TextInput,
   SelectInput,
+  ShowButton,
+  WrapperField,
 } from "react-admin";
 import InlineEditStatus from "../statusSwitch";
+import { Box } from "@mui/material";
 const PostFilter = () => (
   <Filter>
     <TextInput label="Search by Title" source="title" alwaysOn />
@@ -32,8 +35,15 @@ export const PostList = () => (
         <TextField source="name" />
       </ReferenceField>
       <DateField source="publishedDate" />
-      <InlineEditStatus />
-      <EditButton />
+      <WrapperField label="Status">
+        <InlineEditStatus />
+      </WrapperField>
+      <WrapperField label="Action">
+        <Box>
+          <EditButton />
+          <ShowButton />
+        </Box>
+      </WrapperField>
     </Datagrid>
   </List>
 );

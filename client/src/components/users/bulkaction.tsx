@@ -4,11 +4,13 @@ import {
   Confirm,
   useListContext,
   useUnselectAll,
-  useUpdateMany,
+  useUpdate,
+  useGetMany,
   useNotify,
+  Button,
   useRefresh,
 } from "react-admin";
-import { Button, Box } from "@mui/material";
+import { Box } from "@mui/material";
 
 const BulkActionButton = () => {
   const { selectedIds } = useListContext();
@@ -17,41 +19,56 @@ const BulkActionButton = () => {
   const notify = useNotify();
   const unselectAll = useUnselectAll("users");
 
-  const [updateMany, { isPending }] = useUpdateMany(
-    "users",
-    { ids: selectedIds, data: { active: false } },
-    {
-      onSuccess: () => {
-        notify("Users updated");
-        unselectAll();
-      },
-      onError: () => {
-        notify("Error: posts not updated", { type: "error" });
-        refresh();
-      },
-    },
-  );
+  const { data: existingUsers, isLoading } = useGetMany("users", {
+    ids: selectedIds,
+  });
+  const [update] = useUpdate();
+
   const handleClick = () => setOpen(true);
   const handleDialogClose = () => setOpen(false);
 
-  const handleConfirm = () => {
-    updateMany();
+  const handleConfirm = async () => {
     setOpen(false);
+
+    if (isLoading || !existingUsers) {
+      notify("Error: Unable to fetch existing users", { type: "error" });
+      return;
+    }
+
+    try {
+      await Promise.all(
+        selectedIds.map(async (id) => {
+          const user = existingUsers.find((u) => u.id === id);
+          if (user) {
+            await update("users", { id, data: { ...user, active: false } });
+          }
+        }),
+      );
+
+      notify("Users deactivated successfully", { type: "success" });
+      unselectAll();
+      refresh();
+    } catch (error) {
+      notify("Error: Users not updated", { type: "error" });
+    }
   };
 
   return (
     <>
-      <Box flex={1} alignItems={"center"} justifyItems={"end"} gap={2}>
+      <Box flex={1} alignItems={"center"} justifyItems={"end"} gap={5}>
         <BulkDeleteButton />
-        <Button onClick={handleClick} color="secondary" disabled={isPending}>
-          Deactivate
-        </Button>
+        <Button
+          onClick={handleClick}
+          color="secondary"
+          disabled={isLoading}
+          label="Deactivate"
+        />
       </Box>
 
       <Confirm
         isOpen={open}
-        loading={isPending}
-        title=" Deactivate Selected Users"
+        loading={isLoading}
+        title="Deactivate Selected Users"
         content={`Are you sure you want to deactivate ${selectedIds.length} users?`}
         onConfirm={handleConfirm}
         onClose={handleDialogClose}

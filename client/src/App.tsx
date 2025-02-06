@@ -1,19 +1,14 @@
-import { Admin, Resource, ShowGuesser } from "react-admin";
-import { Layout } from "./Layout";
-import { UserList } from "./components/users";
-import { PostList, PostEdit, PostCreate } from "./components/posts";
+import { Admin, Resource } from "react-admin";
+import { dataProvider } from "./dataProvider";
+import { UserCreate, UserEdit, UserList, UserShow } from "./components/users";
+import { PostList, PostEdit, PostCreate, ShowPost } from "./components/posts";
 import Dashboard from "./components/dashboard";
-//import { dataProvider } from "./dataProvider";
 import PostIcon from "@mui/icons-material/Book";
 import UserIcon from "@mui/icons-material/Group";
 import { authProvider } from "./authProvider";
-import { themes, ThemeName } from "./themes/themes";
-import jsonServerProvider from "ra-data-json-server";
-
-const dataProvider = jsonServerProvider("http://localhost:3000");
+import { themes } from "./themes/themes";
 
 export const App = () => {
-  //const [themeName] = useStore<ThemeName>('themeName', 'soft');
   const lightTheme = themes.find((theme) => theme.name === "soft")?.light;
   const darkTheme = themes.find((theme) => theme.name === "soft")?.dark;
   return (
@@ -22,7 +17,6 @@ export const App = () => {
       darkTheme={darkTheme}
       defaultTheme="light"
       authProvider={authProvider}
-      layout={Layout}
       dataProvider={dataProvider}
       dashboard={Dashboard}
       title={"Dashboard"}
@@ -31,9 +25,9 @@ export const App = () => {
         name="users"
         icon={UserIcon}
         list={UserList}
-        show={ShowGuesser}
-        //link={"show"}
-        //reference="users"
+        show={UserShow}
+        edit={UserEdit}
+        create={UserCreate}
       />
       <Resource
         name="posts"
@@ -41,6 +35,7 @@ export const App = () => {
         list={PostList}
         edit={PostEdit}
         create={PostCreate}
+        show={ShowPost}
       />
     </Admin>
   );
