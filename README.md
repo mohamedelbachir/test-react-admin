@@ -2,15 +2,15 @@
 
 ## **📌 Installation**
 
-First, install the project dependencies:
+To get started, install the project dependencies:
 
-```sh
+```bash
 npm install
 ```
 
-Then, install dependencies for the `client` subdirectory:
+Next, install dependencies for the `client` subdirectory:
 
-```sh
+```bash
 cd client
 npm install
 ```
@@ -23,9 +23,9 @@ To start the application in development mode:
 
 ### **If you're inside the `client` folder:**
 
-Move back to the root directory first:
+First, move back to the root directory:
 
-```sh
+```bash
 cd ..
 npm run dev
 ```
@@ -34,7 +34,7 @@ npm run dev
 
 Simply run:
 
-```sh
+```bash
 npm run dev
 ```
 
@@ -42,7 +42,7 @@ npm run dev
 
 ## **🔐 Admin Credentials**
 
-Use the following credentials to log in:
+You can log in using the following credentials:
 
 - **Username**: `admin`
 - **Password**: `admin`
@@ -63,13 +63,10 @@ This will load the frontend application.
 
 ## **🌍 Local Server Preview (MockApi)**
 
-available ressources :
+Available resources for mock API:
 
-```
-http://localhost:5000/users
-http://localhost:5000/posts
-
-```
+- **Users**: `http://localhost:5000/users`
+- **Posts**: `http://localhost:5000/posts`
 
 ---
 
@@ -81,4 +78,4 @@ This project uses [ra-data-json-server](https://github.com/marmelab/react-admin/
 
 By default, the project is configured to use `json-server` with the `db.json` file as a mock backend.
 
-If needed, update the configuration to connect to a different backend.
+If you need to connect to a different backend, you can update the configuration accordingly.
