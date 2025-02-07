@@ -61,8 +61,6 @@ This will load the frontend application.
 
 ---
 
----
-
 ## **🌍 Local Server Preview (MockApi)**
 
 available ressources :
@@ -72,8 +70,6 @@ http://localhost:5000/users
 http://localhost:5000/posts
 
 ```
-
-This will load the frontend application.
 
 ---
 
