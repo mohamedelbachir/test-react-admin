@@ -8,7 +8,7 @@ const ActiveStatusField = () => {
     <Chip
       label={record.active ? "Active" : "Deactivated"}
       sx={{
-        backgroundColor: record.active ? "#4CAF50" : "#F44336", // Green for active, red for inactive
+        backgroundColor: record.active ? "#4CAF50" : "#F44336",
         color: "#fff",
       }}
     />

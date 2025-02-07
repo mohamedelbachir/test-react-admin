@@ -2,7 +2,7 @@
 
 ## **📌 Installation**
 
-First, install the application dependencies:
+First, install the project dependencies:
 
 ```sh
 npm install
@@ -40,6 +40,15 @@ npm run dev
 
 ---
 
+## **🔐 Admin Credentials**
+
+Use the following credentials to log in:
+
+- **Username**: `admin`
+- **Password**: `admin`
+
+---
+
 ## **🌍 Local Preview**
 
 Once the development server is running, open your browser and visit:
@@ -52,12 +61,28 @@ This will load the frontend application.
 
 ---
 
+---
+
+## **🌍 Local Server Preview (MockApi)**
+
+available ressources :
+
+```
+http://localhost:5000/users
+http://localhost:5000/posts
+
+```
+
+This will load the frontend application.
+
+---
+
 ## **📦 Data Provider**
 
 This project uses [ra-data-json-server](https://github.com/marmelab/react-admin/tree/master/packages/ra-data-json-server) as the data provider.
 
-You'll find an **`.env`** file in the `client` directory containing the `VITE_JSON_SERVER_URL` variable.
-
 ### **Default Configuration**
 
-By default, the project is configured to use `json-server` with the file `db.json` as the mock backend.
+By default, the project is configured to use `json-server` with the `db.json` file as a mock backend.
+
+If needed, update the configuration to connect to a different backend.

@@ -12,7 +12,7 @@ export const PostCreate = () => (
     <SimpleForm>
       <TextInput source="title" required />
       <ReferenceInput source="authorId" reference="users">
-        <SelectInput optionText="name" />
+        <SelectInput optionText="name" required />
       </ReferenceInput>
       <DateInput source="publishedDate" type="date" required />
       <SelectInput

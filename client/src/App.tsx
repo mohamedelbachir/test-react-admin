@@ -13,13 +13,13 @@ export const App = () => {
   const darkTheme = themes.find((theme) => theme.name === "soft")?.dark;
   return (
     <Admin
+      title="Dashboard"
       lightTheme={lightTheme}
       darkTheme={darkTheme}
       defaultTheme="light"
       authProvider={authProvider}
       dataProvider={dataProvider}
       dashboard={Dashboard}
-      title={"Dashboard"}
     >
       <Resource
         name="users"

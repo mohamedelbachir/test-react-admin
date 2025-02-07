@@ -3,7 +3,7 @@ import { AuthProvider } from "react-admin";
 export const authProvider: AuthProvider = {
   // called when the user attempts to log in
   async login({ username, password }) {
-    // accept all username/password combinations
+    //simple authentification logic
     if (username !== "admin" && password !== "admin") {
       throw new Error("Invalid credentials, please try again");
     }

@@ -36,7 +36,7 @@ const PostStatusChart: React.FC<PostStatusChartProps> = ({
           fill="#8884d8"
           dataKey="value"
         >
-          {chartData.map((entry, index) => (
+          {chartData.map((_, index) => (
             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
           ))}
         </Pie>

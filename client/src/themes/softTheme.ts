@@ -16,7 +16,17 @@ export const softDarkTheme: RaThemeOptions = {
     },
     mode: "dark" as const, // Switching the dark mode on is a single property value change.
   },
-
+  typography: {
+    fontFamily: "'Inter', sans-serif",
+    h1: { fontSize: "2rem", fontWeight: 700 },
+    h2: { fontSize: "1.75rem", fontWeight: 600 },
+    h3: { fontSize: "1.5rem", fontWeight: 600 },
+    h4: { fontSize: "1.25rem", fontWeight: 500 },
+    h5: { fontSize: "1.1rem", fontWeight: 500 },
+    h6: { fontSize: "1rem", fontWeight: 500 },
+    body1: { fontSize: "1rem", lineHeight: 1.6 },
+    body2: { fontSize: "0.875rem", lineHeight: 1.5 },
+  },
   components: {
     ...defaultTheme.components,
     RaListMain: {
@@ -69,6 +79,17 @@ export const softLightTheme: RaThemeOptions = {
   },
   shape: {
     borderRadius: 10,
+  },
+  typography: {
+    fontFamily: "'Inter', sans-serif",
+    h1: { fontSize: "2rem", fontWeight: 700 },
+    h2: { fontSize: "1.75rem", fontWeight: 600 },
+    h3: { fontSize: "1.5rem", fontWeight: 600 },
+    h4: { fontSize: "1.25rem", fontWeight: 500 },
+    h5: { fontSize: "1.1rem", fontWeight: 500 },
+    h6: { fontSize: "1rem", fontWeight: 500 },
+    body1: { fontSize: "1rem", lineHeight: 1.6 },
+    body2: { fontSize: "0.875rem", lineHeight: 1.5 },
   },
   components: {
     ...defaultTheme.components,

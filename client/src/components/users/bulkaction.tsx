@@ -9,8 +9,11 @@ import {
   useNotify,
   Button,
   useRefresh,
+  useGetList,
+  useDeleteMany,
 } from "react-admin";
 import { Box } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const BulkActionButton = () => {
   const { selectedIds } = useListContext();
@@ -18,15 +21,56 @@ const BulkActionButton = () => {
   const refresh = useRefresh();
   const notify = useNotify();
   const unselectAll = useUnselectAll("users");
+  let postAuthors: any[] = [];
+  const [deleteManyPosts] = useDeleteMany("posts", {
+    ids: postAuthors,
+  });
+
+  const [deleteManyUsers, { isPending, error }] = useDeleteMany("users", {
+    ids: selectedIds,
+  });
 
   const { data: existingUsers, isLoading } = useGetMany("users", {
     ids: selectedIds,
   });
+
+  const { data: posts, isLoading: loadingPosts } = useGetList("posts");
+
   const [update] = useUpdate();
 
   const handleClick = () => setOpen(true);
   const handleDialogClose = () => setOpen(false);
 
+  postAuthors =
+    posts?.filter((p) => selectedIds.includes(p.authorId)).map((p) => p.id) ??
+    [];
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleDelete = async (e: any) => {
+    e.preventDefault();
+    if (!loadingPosts) {
+      await Promise.all([
+        await deleteManyPosts("posts", {
+          ids: postAuthors,
+        }),
+        await deleteManyUsers(),
+      ])
+        .then((r) => {
+          notify("Users with their post deleted successfully", {
+            type: "success",
+          });
+          unselectAll();
+          refresh();
+        })
+        .catch((e) => {
+          notify("Error: Impossible to delete users", { type: "error" });
+        });
+    }
+  };
+
+  if (error) {
+    notify("Error: Impossible to delete users", { type: "error" });
+  }
   const handleConfirm = async () => {
     setOpen(false);
 
@@ -55,8 +99,14 @@ const BulkActionButton = () => {
 
   return (
     <>
-      <Box flex={1} alignItems={"center"} justifyItems={"end"} gap={5}>
-        <BulkDeleteButton />
+      <Box flex={1} alignItems={"center"} justifyItems={"end"} gap={10}>
+        <Button
+          color="warning"
+          disabled={isPending}
+          label="delete"
+          onClick={handleDelete}
+          startIcon={<DeleteIcon />}
+        />
         <Button
           onClick={handleClick}
           color="secondary"

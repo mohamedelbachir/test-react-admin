@@ -11,6 +11,7 @@ import { useGetList } from "react-admin";
 import StatsCard from "./statsCard";
 import PostsPerUserChart from "./postsPerUserChart";
 import PostStatusChart from "./postStatusChart";
+import { Title } from "react-admin";
 
 const DashboardContainer = styled(Container)(({ theme }) => ({
   paddingTop: theme.spacing(4),
@@ -23,19 +24,6 @@ const ChartPaper = styled(Paper)(({ theme }) => ({
   flexDirection: "column",
   height: 300,
 }));
-
-interface User {
-  id: number;
-  name: string;
-}
-
-interface Post {
-  id: number;
-  userId: number;
-  title: string;
-  body: string;
-  status: "published" | "draft";
-}
 
 const Dashboard: React.FC = () => {
   const { data: users, isLoading: loadingUsers } = useGetList("users");
@@ -73,6 +61,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <DashboardContainer maxWidth="lg">
+      <Title title="Dashboard" />
       <Typography variant="h4" gutterBottom>
         Dashboard
       </Typography>
