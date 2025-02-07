@@ -1,16 +1,22 @@
 {
   "users": [
     {
-      "id": 4,
-      "name": "Diana Ross",
-      "email": "diana@example.com",
+      "id": 1,
+      "name": "Alice Johnson",
+      "email": "alice@example.com",
+      "active": false
+    },
+    {
+      "id": 3,
+      "name": "Charlie Brown",
+      "email": "charlie@example.com",
       "active": true
     },
     {
-      "id": 5,
-      "name": "Ethan Hunt",
-      "email": "ethan@example.com",
-      "active": true
+      "id": 6,
+      "name": "Fiona Apple",
+      "email": "fiona@example.com",
+      "active": false
     },
     {
       "id": 7,
@@ -23,14 +29,82 @@
       "name": "Hannah Baker",
       "email": "hannah@example.com",
       "active": false
+    },
+    {
+      "id": 9,
+      "name": "Ian McKellen",
+      "email": "ian@example.com",
+      "active": true
+    },
+    {
+      "id": 10,
+      "name": "Jessica Alba",
+      "email": "jessica@example.com",
+      "active": true
     }
   ],
   "posts": [
+    {
+      "id": 1,
+      "title": "React Admin Guide",
+      "authorId": 1,
+      "publishedDate": "2024-01-01",
+      "status": "Published"
+    },
+    {
+      "id": 2,
+      "title": "Material-UI Best Practices",
+      "authorId": 9,
+      "publishedDate": "2024-02-10",
+      "status": "Draft"
+    },
+    {
+      "id": 3,
+      "title": "Building Accessible UIs",
+      "authorId": 3,
+      "publishedDate": "2024-03-15",
+      "status": "Published"
+    },
+    {
+      "id": 4,
+      "title": "Using JSON Server with React",
+      "authorId": 9,
+      "publishedDate": "2024-04-20",
+      "status": "Published"
+    },
+    {
+      "id": 6,
+      "title": "Authentication in React Admin",
+      "authorId": 6,
+      "publishedDate": "2024-06-08",
+      "status": "Published"
+    },
     {
       "id": 7,
       "title": "State Management with Redux",
       "authorId": 7,
       "publishedDate": "2024-07-12",
+      "status": "Draft"
+    },
+    {
+      "id": 8,
+      "title": "Optimizing React Performance",
+      "authorId": 10,
+      "publishedDate": "2024-08-22",
+      "status": "Published"
+    },
+    {
+      "id": 9,
+      "title": "REST vs GraphQL APIs",
+      "authorId": 9,
+      "publishedDate": "2024-09-30",
+      "status": "Published"
+    },
+    {
+      "id": 10,
+      "title": "React Hooks Deep Dive",
+      "authorId": 10,
+      "publishedDate": "2024-10-15",
       "status": "Draft"
     }
   ]
